@@ -1,0 +1,99 @@
+$green: #74d447;
+$off-white: #f0f0f0;
+$grey: #888;
+$blue: #47a3d4;
+$orange: #d4a347;
+
+.timer-subtext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.5rem;
+  
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  
+  .preset-name {
+    color: $off-white;
+    font-weight: 500;
+  }
+  
+  .separator {
+    color: rgba($grey, 0.5);
+  }
+  
+  .phase-label {
+    color: $grey;
+    transition: color 0.3s ease;
+    
+    &.running {
+      animation: pulse 2s ease-in-out infinite;
+    }
+  }
+  
+  .phase-progress {
+    color: rgba($grey, 0.7);
+    font-size: 0.9em;
+  }
+  
+  .status-label {
+    color: rgba($grey, 0.8);
+    font-size: 0.9em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .no-preset {
+    color: rgba($grey, 0.7);
+    font-style: italic;
+  }
+  
+  // Status-specific colors
+  &.phase-running {
+    .phase-label {
+      color: $green;
+    }
+    .status-label {
+      color: $green;
+    }
+  }
+  
+  &.phase-paused {
+    .phase-label {
+      color: $blue;
+    }
+    .status-label {
+      color: $blue;
+    }
+  }
+  
+  &.phase-completed {
+    .phase-label {
+      color: $orange;
+    }
+    .status-label {
+      color: $orange;
+    }
+  }
+  
+  &.phase-idle {
+    .phase-label {
+      color: $grey;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}

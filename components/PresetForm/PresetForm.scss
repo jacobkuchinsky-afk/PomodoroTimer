@@ -1,0 +1,368 @@
+$bg: #0a0a0a;
+$charcoal: #1a1a1a;
+$green: #74d447;
+$off-white: #f0f0f0;
+$grey: #888;
+$error: #e74c3c;
+
+.preset-form {
+  background-color: $charcoal;
+  border: 1px solid rgba($grey, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  
+  h2 {
+    color: $off-white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  
+  > label {
+    display: block;
+    color: rgba($off-white, 0.8);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  
+  > input[type="text"] {
+    width: 100%;
+    background-color: $bg;
+    border: 1px solid rgba($grey, 0.25);
+    border-radius: 6px;
+    color: $off-white;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    
+    &::placeholder {
+      color: rgba($grey, 0.6);
+    }
+    
+    &:focus {
+      border-color: $green;
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.duration-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.preset-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.preset-btn {
+  padding: 0.5rem 0.75rem;
+  background-color: $bg;
+  border: 1px solid rgba($grey, 0.25);
+  border-radius: 6px;
+  color: rgba($off-white, 0.7);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    border-color: rgba($grey, 0.5);
+  }
+  
+  &.selected {
+    background-color: rgba($green, 0.1);
+    border-color: $green;
+    color: $green;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.duration-input {
+  width: 70px;
+  background-color: $bg;
+  border: 1px solid rgba($grey, 0.25);
+  border-radius: 6px;
+  color: $off-white;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  
+  &:focus {
+    border-color: $green;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.schedule-group {
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba($grey, 0.15);
+}
+
+.loop-group {
+  padding: 1rem;
+  margin-top: 0.75rem;
+  background-color: $bg;
+  border: 1px solid rgba($grey, 0.2);
+  border-radius: 8px;
+  
+  .checkbox-label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .loop-hint {
+    color: rgba($grey, 0.6);
+    font-size: 0.75rem;
+    margin-left: 3.25rem;
+    line-height: 1.4;
+  }
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  
+  // Hide the native checkbox
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  // Custom toggle switch
+  .toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background-color: rgba($grey, 0.3);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background-color: rgba($off-white, 0.8);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  // Checked state
+  input[type="checkbox"]:checked + .toggle-switch {
+    background-color: rgba($green, 0.4);
+    
+    &::after {
+      left: 23px;
+      background-color: $green;
+    }
+  }
+  
+  // Focus state
+  input[type="checkbox"]:focus-visible + .toggle-switch {
+    box-shadow: 0 0 0 2px rgba($green, 0.4);
+  }
+  
+  // Hover state
+  &:hover .toggle-switch {
+    background-color: rgba($grey, 0.4);
+  }
+  
+  &:hover input[type="checkbox"]:checked + .toggle-switch {
+    background-color: rgba($green, 0.5);
+  }
+  
+  // Disabled state
+  input[type="checkbox"]:disabled + .toggle-switch {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  span:last-child {
+    color: rgba($off-white, 0.9);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+}
+
+.schedule-inputs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.time-input {
+  flex: 1;
+  
+  label {
+    display: block;
+    color: rgba($off-white, 0.6);
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  input[type="time"] {
+    width: 100%;
+    background-color: $bg;
+    border: 1px solid rgba($grey, 0.25);
+    border-radius: 6px;
+    color: $off-white;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    
+    &:focus {
+      border-color: $green;
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+      cursor: pointer;
+    }
+  }
+}
+
+.error-message {
+  background-color: rgba($error, 0.1);
+  border: 1px solid rgba($error, 0.3);
+  border-radius: 6px;
+  color: lighten($error, 10%);
+  font-size: 0.85rem;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.save-button {
+  flex: 1;
+  min-width: 100px;
+  background-color: rgba($green, 0.15);
+  border: 1px solid $green;
+  border-radius: 6px;
+  color: $green;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: rgba($green, 0.25);
+  }
+  
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.activate-button {
+  background-color: transparent;
+  border: 1px solid rgba($grey, 0.4);
+  border-radius: 6px;
+  color: rgba($off-white, 0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    border-color: $green;
+    color: $green;
+  }
+  
+  &.is-active {
+    background-color: rgba($green, 0.1);
+    border-color: $green;
+    color: $green;
+    cursor: default;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.delete-button {
+  background-color: transparent;
+  border: 1px solid rgba($error, 0.4);
+  border-radius: 6px;
+  color: $error;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: rgba($error, 0.1);
+    border-color: $error;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,39 @@
+$tr: transparent;
+$bl: #000;
+$gry: #444;
+
+:root {
+  --grid-color: #{$gry};
+}
+
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $bl;
+  font-size: 20px;
+  margin: 0;
+  overflow: hidden;
+}
+
+// Grid background applied via separate element for dynamic color changes
+.grid-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at center, $tr, $bl 95%),
+    linear-gradient(var(--grid-color) 0.1em, $tr 0) 0 0 / 1em 1em,
+    linear-gradient(90deg, var(--grid-color) 0.1em, $bl 0) 0 0 / 1em 1em;
+  pointer-events: none;
+}

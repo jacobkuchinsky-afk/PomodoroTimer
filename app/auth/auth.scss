@@ -1,0 +1,49 @@
+$green: #74d447;
+$off-white: #f0f0f0;
+
+.auth-page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.back-link {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 100;
+  
+  color: rgba($off-white, 0.7);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $green;
+  }
+}
+
+.auth-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, transparent, #000 95%),
+    linear-gradient(#444 0.1em, transparent 0) 0 0 / 1em 1em,
+    linear-gradient(90deg, #444 0.1em, #000 0) 0 0 / 1em 1em;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba($green, 0.2);
+  border-top-color: $green;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

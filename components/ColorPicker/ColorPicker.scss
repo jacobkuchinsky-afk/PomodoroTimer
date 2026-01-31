@@ -1,0 +1,167 @@
+$bg: #0a0a0a;
+$charcoal: #1a1a1a;
+$off-white: #f0f0f0;
+$grey: #888;
+
+.color-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.color-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba($off-white, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: none;
+  padding: 0;
+  
+  &:hover {
+    transform: scale(1.15);
+    border-color: rgba($off-white, 0.6);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($off-white, 0.3);
+  }
+}
+
+.color-dropdown {
+  background: $charcoal;
+  border: 1px solid rgba($grey, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  z-index: 99999;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  width: 240px;
+  
+  // Arrow pointing up
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba($grey, 0.3);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid $charcoal;
+  }
+}
+
+// Saturation/Brightness gradient area
+.color-gradient {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
+  cursor: crosshair;
+  margin-bottom: 12px;
+  touch-action: none;
+  user-select: none;
+  
+  .gradient-white {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(to right, #fff, transparent);
+  }
+  
+  .gradient-black {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(to top, #000, transparent);
+  }
+  
+  .gradient-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+}
+
+// Hue slider
+.hue-slider {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  background: linear-gradient(
+    to right,
+    #ff0000 0%,
+    #ffff00 17%,
+    #00ff00 33%,
+    #00ffff 50%,
+    #0000ff 67%,
+    #ff00ff 83%,
+    #ff0000 100%
+  );
+  
+  .hue-cursor {
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    background: transparent;
+  }
+}
+
+// Preset color swatches
+.color-presets {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.color-option {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0;
+  
+  &:hover {
+    transform: scale(1.15);
+    border-color: rgba($off-white, 0.5);
+  }
+  
+  &.selected {
+    border-color: $off-white;
+    box-shadow: 0 0 0 2px rgba($off-white, 0.3);
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}

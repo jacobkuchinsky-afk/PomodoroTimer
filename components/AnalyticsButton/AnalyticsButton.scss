@@ -1,0 +1,38 @@
+$green: #74d447;
+$off-white: #f0f0f0;
+
+.analytics-button {
+  position: fixed;
+  top: 1.5rem;
+  left: calc(1.5rem + 120px + 0.75rem); // Position next to settings button
+  z-index: 100;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: transparent;
+  border: none;
+  
+  color: rgba($off-white, 0.6);
+  
+  padding: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: $green;
+    filter: drop-shadow(0 0 8px rgba($green, 0.4));
+  }
+  
+  &:active {
+    transform: scale(0.92);
+  }
+  
+  .analytics-icon {
+    width: 22px;
+    height: 22px;
+  }
+}

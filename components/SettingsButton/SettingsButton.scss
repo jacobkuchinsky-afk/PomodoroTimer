@@ -1,0 +1,45 @@
+$charcoal: #1f1f1f;
+$green: #74d447;
+$off-white: #f0f0f0;
+
+.settings-button {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 100;
+  
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  background-color: $charcoal;
+  border: 1px solid $green;
+  border-radius: 6px;
+  
+  color: $off-white;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: lighten($charcoal, 8%);
+    border-color: lighten($green, 10%);
+    box-shadow: 0 0 12px rgba($green, 0.3);
+  }
+  
+  &:active {
+    transform: scale(0.97);
+  }
+  
+  .settings-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

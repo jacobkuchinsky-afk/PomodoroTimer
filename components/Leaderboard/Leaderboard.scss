@@ -1,0 +1,211 @@
+$green: #74d447;
+$off-white: #f0f0f0;
+$grey: #888;
+$bg: #0a0a0a;
+$card-bg: #141414;
+$gold: #ffd700;
+$silver: #c0c0c0;
+$bronze: #cd7f32;
+
+.leaderboard {
+  margin-top: 2rem;
+  background-color: $card-bg;
+  border: 1px solid rgba($grey, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  h2 {
+    color: $off-white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.tab-switcher {
+  display: flex;
+  background-color: rgba($grey, 0.15);
+  border-radius: 8px;
+  padding: 4px;
+
+  .tab {
+    background: none;
+    color: $grey;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $off-white;
+    }
+
+    &.active {
+      background-color: $green;
+      color: $bg;
+    }
+  }
+}
+
+.leaderboard-loading {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+
+  .loader {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba($green, 0.2);
+    border-top-color: $green;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.leaderboard-empty {
+  text-align: center;
+  padding: 2rem;
+
+  p {
+    color: $grey;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba($grey, 0.08);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba($grey, 0.12);
+  }
+
+  &.current-user {
+    background-color: rgba($green, 0.12);
+    border: 1px solid rgba($green, 0.25);
+
+    .rank-badge {
+      background-color: $green;
+      color: $bg;
+    }
+
+    .display-name {
+      color: $green;
+    }
+  }
+}
+
+.rank-badge {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background-color: rgba($grey, 0.3);
+  color: $off-white;
+  flex-shrink: 0;
+
+  &.gold {
+    background: linear-gradient(135deg, $gold, darken($gold, 15%));
+    color: #1a1a1a;
+    box-shadow: 0 0 10px rgba($gold, 0.3);
+  }
+
+  &.silver {
+    background: linear-gradient(135deg, $silver, darken($silver, 15%));
+    color: #1a1a1a;
+    box-shadow: 0 0 10px rgba($silver, 0.2);
+  }
+
+  &.bronze {
+    background: linear-gradient(135deg, $bronze, darken($bronze, 15%));
+    color: #1a1a1a;
+    box-shadow: 0 0 10px rgba($bronze, 0.2);
+  }
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+
+  .display-name {
+    color: $off-white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .you-tag {
+    color: $green;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+}
+
+.time-value {
+  color: $grey;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.user-rank-section {
+  margin-top: 0.75rem;
+}
+
+.rank-divider {
+  text-align: center;
+  padding: 0.5rem 0;
+
+  span {
+    color: $grey;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+  }
+}
+
+.opted-out-message {
+  text-align: center;
+  color: $grey;
+  font-size: 0.85rem;
+  padding: 1rem;
+  margin: 0;
+}

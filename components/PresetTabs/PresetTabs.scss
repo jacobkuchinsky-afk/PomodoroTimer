@@ -1,0 +1,133 @@
+$bg: #0a0a0a;
+$charcoal: #1a1a1a;
+$green: #74d447;
+$off-white: #f0f0f0;
+$grey: #888;
+
+.preset-tabs {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 100;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  
+  scrollbar-width: thin;
+  scrollbar-color: rgba($grey, 0.2) transparent;
+  
+  &::-webkit-scrollbar {
+    height: 3px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($grey, 0.2);
+    border-radius: 2px;
+  }
+}
+
+.preset-tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 100px;
+  padding: 0.6rem 0.85rem;
+  background-color: $bg;
+  border: 1px solid rgba($grey, 0.2);
+  border-radius: 6px;
+  color: rgba($off-white, 0.6);
+  font-family: inherit;
+  transition: all 0.2s ease;
+  position: relative;
+  
+  &:hover {
+    border-color: rgba($grey, 0.4);
+    color: rgba($off-white, 0.8);
+  }
+  
+  &.selected {
+    background-color: $charcoal;
+    border-color: $green;
+    color: $off-white;
+    
+    .tab-duration {
+      color: rgba($green, 0.8);
+    }
+  }
+  
+  &.active {
+    .active-indicator {
+      color: $green;
+    }
+  }
+  
+  .tab-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    flex: 1;
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .tab-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  .tab-duration {
+    font-size: 0.7rem;
+    color: rgba($grey, 0.7);
+  }
+  
+  .tab-color-picker {
+    flex-shrink: 0;
+  }
+  
+  .active-indicator {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    font-size: 0.55rem;
+    color: rgba($green, 0.5);
+  }
+}
+
+.add-tab {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 70px;
+  border-style: dashed;
+  color: rgba($grey, 0.6);
+  
+  &:hover {
+    border-color: $green;
+    color: $green;
+  }
+  
+  .add-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
